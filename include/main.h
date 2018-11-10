@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** my_printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
 void my_put_nbr(int n);
@@ -10,3 +10,5 @@ void my_putchar(char c);
 
 int get_ids(char *str);
 int *get_flags(char *first_str);
+
+char *my_printf(char *first_str, ...);

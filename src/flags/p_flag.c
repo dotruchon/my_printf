@@ -7,7 +7,10 @@
 
 #include <stdarg.h>
 
-void flag_p(char *first_str, va_list list)
+void my_putchar(char c);
+void my_putstr(char const *str);
+
+void flag_p(va_list list)
 {
     my_putchar('p');
 }

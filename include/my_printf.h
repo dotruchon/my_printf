@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** my_printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
 #include <stdio.h>
@@ -12,15 +12,16 @@ void my_putstr(char const *str);
 void my_putchar(char c);
 
 int *get_flags(char *first_str);
+int get_id(char c);
 
-void flag_percent(char *first_str, va_list list);
-void flag_d(char *first_str, va_list list);
-void flag_i(char *first_str, va_list list);
-void flag_o(char *first_str, va_list list);
-void flag_x(char *first_str, va_list list);
-void flag_X(char *first_str, va_list list);
-void flag_u(char *first_str, va_list list);
-void flag_c(char *first_str, va_list list);
-void flag_s(char *first_str, va_list list);
-void flag_S(char *first_str, va_list list);
-void flag_p(char *first_str, va_list list);
+void flag_percent(va_list list);
+void flag_d(va_list list);
+void flag_i(va_list list);
+void flag_o(va_list list);
+void flag_x(va_list list);
+void flag_X(va_list list);
+void flag_u(va_list list);
+void flag_c(va_list list);
+void flag_s(va_list list);
+void flag_S(va_list list);
+void flag_p(va_list list);

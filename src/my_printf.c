@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** my_printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
 #include "../include/my_printf.h"
@@ -10,26 +10,29 @@
 
 char *my_printf(char *first_str, ...)
 {
-    void (*call_flag[11])(char *, ...) = {flag_percent, flag_d, flag_i, flag_o, flag_x,
+    va_list list;
+    void (*call_flag[11])(va_list) = {flag_percent, flag_d, flag_i, flag_o, flag_x,
                                         flag_X, flag_u, flag_c, flag_s, flag_S, flag_p};
-    int *flags = get_flags(first_str);
     int i = 0;
     int flag = 11;
-    va_list list;
 
     va_start(list, first_str);
 
-    while (first_str) {
+    while (first_str[i]) {
         if (first_str[i] == '%') {
             flag = get_id(first_str[i + 1]);
-            if (flag == 11)
-                my_putchar(first_str[i]);
-            else {
-                call_flag[flag](first_str, list);
+            if (0 <= flag && flag <= 10) {
+                call_flag[flag](&list);
+                i++;
             }
+            else {
+                my_putchar(first_str[i]);
+            }
+        } else {
+            my_putchar(first_str[i]);
         }
-        my_putchar(first_str[i]);
+        i++;
     }
-
     va_end(list);
+    return ("Hayyy");
 }

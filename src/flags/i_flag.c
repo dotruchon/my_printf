@@ -7,7 +7,11 @@
 
 #include <stdarg.h>
 
-void flag_i(char *first_str, va_list list);
+void my_putchar(char c);
+void my_putstr(char const *str);
+
+void flag_i(va_list *list)
 {
-    my_putchar('i');
+    int i = va_arg(*list, void *);
+    my_put_nbr(i);
 }

@@ -5,7 +5,12 @@
 ** CPE_BSQ_2018 project
 */
 
-void flag_percent(char *first_str, va_list list)
-{
+#include <stdarg.h>
 
+void my_putchar(char c);
+void my_putstr(char const *str);
+
+void flag_percent(va_list list)
+{
+    my_putchar('%');
 }

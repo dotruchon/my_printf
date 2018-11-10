@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** my_printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
 #include "../include/get_args.h"
@@ -11,7 +11,6 @@ int get_id(char c)
 {
     int id;
     int i = 0;
-    int j = 0;
 
     while (flags_list[i].id != -1) {
         if (c == flags_list[i].c) {

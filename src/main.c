@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** my_printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
 #include "../include/main.h"
@@ -21,5 +21,5 @@ void my_putstr_int(int *str_int)
 
 int main (void)
 {
-    my_putstr_int(get_flags("%# %cl"));
+    my_printf("%i h %d j  %c", 4, 1, 'K');
 }
