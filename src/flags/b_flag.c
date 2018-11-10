@@ -9,8 +9,8 @@
 
 void my_put_nbr_base(int n, char *base);
 
-void flag_o(va_list *list)
+void flag_b(va_list *list)
 {
-    int o = va_arg(*list, int);
-    my_put_nbr_base(o, "01234567");
+    int b = va_arg(*list, int);
+    my_put_nbr_base(b, "01");
 }

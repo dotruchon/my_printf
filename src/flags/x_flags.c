@@ -7,15 +7,16 @@
 
 #include <stdarg.h>
 
-void my_putchar(char c);
-void my_putstr(char const *str);
+void my_put_nbr_base(int n, char *base);
 
-void flag_x(va_list list)
+void flag_x(va_list *list)
 {
-    my_putchar('x');
+    int x = va_arg(*list, int);
+    my_put_nbr_base(x, "0123456789abcdef");
 }
 
-void flag_X(va_list list)
+void flag_X(va_list *list)
 {
-    my_putchar('X');
+    int x = va_arg(*list, int);
+    my_put_nbr_base(x, "0123456789ABCDEF");
 }

@@ -8,8 +8,9 @@
 #include <unistd.h>
 
 void my_putchar(char c);
+int my_strlen(char *str);
 
-int abs(int n)
+int abs_base_long(long n)
 {
     if (n < 0)
         return (-n);
@@ -17,47 +18,48 @@ int abs(int n)
         return (n);
 }
 
-int power(int n)
+int power_base_long(long n, int len_base)
 {
     int power = 1;
     power = 1;
     while (n > 1) {
-        power = power * 10;
+        power = power * len_base;
         n = n - 1;
     }
     return (power);
 }
 
-int digit_count(int n)
+int digit_count_base_long(long n, int len_base)
 {
     int result = 0;
     int start = 1;
 
     while (start == 1 || n != 0) {
         start = 0;
-        n = n / 10;
+        n = n / len_base;
         result = result + 1;
     }
     return (result);
 }
 
-void my_put_nbr(int n)
+void my_put_nbr_base_long(long n, char *base)
 {
     int neg = 0;
     int nb;
     int digit_counter;
-    int stock;
+    long stock;
+    int len_base = my_strlen(base);
     if (n < 0) {
         neg = 1;
         my_putchar('-');
     }
-    digit_counter = digit_count(abs(n));
+    digit_counter = digit_count_base_long(abs_base_long(n), len_base);
     while (digit_counter > 0) {
-        stock = n / power(digit_counter);
-        nb = stock % 10;
+        stock = n / power_base_long(digit_counter, len_base);
+        nb = stock % len_base;
         if (neg)
             nb = -nb;
-        my_putchar('0' + nb);
+        my_putchar(base[0 + nb]);
         digit_counter = digit_counter - 1;
     }
 }

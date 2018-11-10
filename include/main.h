@@ -7,8 +7,9 @@
 
 void my_put_nbr(int n);
 void my_putchar(char c);
+void my_put_nbr_base(int n, char *base);
 
 int get_ids(char *str);
 int *get_flags(char *first_str);
 
-char *my_printf(char *first_str, ...);
+int my_printf(char *first_str, ...);

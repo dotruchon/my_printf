@@ -24,13 +24,17 @@ SRCS    = src/main.c						\
 		  src/flags/i_flag.c				\
 		  src/flags/o_flag.c				\
 		  src/flags/p_flag.c				\
-		  src/flags/percent_flag.c			\
 		  src/flags/s_flags.c				\
 		  src/flags/u_flag.c				\
 		  src/flags/x_flags.c				\
+		  src/flags/b_flag.c				\
 		  include/my/my_putchar.c			\
 		  include/my/my_putstr.c			\
 		  include/my/my_put_nbr.c			\
+		  include/my/my_put_nbr_base.c		\
+		  include/my/my_put_nbr_base_long.c	\
+		  include/my/my_put_unsigned_nbr.c	\
+		  include/my/my_strlen.c
 
 
 OBJS    = $(SRCS:.c=.o)

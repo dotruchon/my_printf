@@ -9,15 +9,7 @@
 
 void my_putchar(char c);
 
-int abs(int n)
-{
-    if (n < 0)
-        return (-n);
-    else
-        return (n);
-}
-
-int power(int n)
+int unsigned_power(unsigned int n)
 {
     int power = 1;
     power = 1;
@@ -28,7 +20,7 @@ int power(int n)
     return (power);
 }
 
-int digit_count(int n)
+int unsigned_digit_count(unsigned int n)
 {
     int result = 0;
     int start = 1;
@@ -41,22 +33,16 @@ int digit_count(int n)
     return (result);
 }
 
-void my_put_nbr(int n)
+void my_put_unsigned_nbr(unsigned int n)
 {
-    int neg = 0;
     int nb;
     int digit_counter;
-    int stock;
-    if (n < 0) {
-        neg = 1;
-        my_putchar('-');
-    }
-    digit_counter = digit_count(abs(n));
+    unsigned int stock;
+
+    digit_counter = unsigned_digit_count(n);
     while (digit_counter > 0) {
-        stock = n / power(digit_counter);
+        stock = n / unsigned_power(digit_counter);
         nb = stock % 10;
-        if (neg)
-            nb = -nb;
         my_putchar('0' + nb);
         digit_counter = digit_counter - 1;
     }
