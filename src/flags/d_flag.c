@@ -1,31 +1,13 @@
 /*
 ** EPITECH PROJECT, 2018
-** BSQ
+** printf
 ** File description:
-** CPE_BSQ_2018 project
+** PSU_my_printf project
 */
 
-void flag_d()
+#include <stdarg.h>
+
+void flag_(char *first_str, va_list list);
 {
-
-}
-
-void flag_i()
-{
-
-}
-
-void flag_o()
-{
-
-}
-
-void flag_x()
-{
-
-}
-
-void flag_X()
-{
-
+    my_putchar('');
 }

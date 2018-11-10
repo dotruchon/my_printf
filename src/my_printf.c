@@ -7,6 +7,7 @@
 
 #include "../include/my_printf.h"
 
+
 char *my_printf(char *first_str, ...)
 {
     void (*call_flag[11])(char *, ...) = {flag_percent, flag_d, flag_i, flag_o, flag_x,
@@ -22,12 +23,13 @@ char *my_printf(char *first_str, ...)
         if (first_str[i] == '%') {
             flag = get_id(first_str[i + 1]);
             if (flag == 11)
-                i++;
+                my_putchar(first_str[i]);
             else {
-                call_flag[flag](char *, ...)
+                call_flag[flag](first_str, list);
             }
         }
-
-        my_putchar(first_str[i])
+        my_putchar(first_str[i]);
     }
+
+    va_end(list);
 }

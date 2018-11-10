@@ -5,22 +5,7 @@
 ** CPE_BSQ_2018 project
 */
 
-void flag_u()
-{
-
-}
-
-void flag_c()
-{
-
-}
-
-void flag_s()
-{
-
-}
-
-void flag_S()
+void flag_percent(char *first_str, va_list list)
 {
 
 }
