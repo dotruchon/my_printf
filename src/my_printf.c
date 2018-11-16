@@ -8,6 +8,14 @@
 #include "../include/my_printf.h"
 
 
+void error_detector(char *first_str)
+{
+    if (my_strlen(first_str) == 0) {
+        my_putstr_error("Error -> No string given to printf\n");
+        exit(ERROR_NO_STRING);
+    }
+}
+
 int my_printf(char *first_str, ...)
 {
     va_list list;
@@ -16,6 +24,7 @@ int my_printf(char *first_str, ...)
     int i = 0;
     int flag = 11;
 
+    error_detector(first_str);
     va_start(list, first_str);
     while (first_str[i]) {
         if (first_str[i] == '%' && first_str[i + 1] != '%') {
@@ -24,9 +33,8 @@ int my_printf(char *first_str, ...)
                 call_flag[flag](&list);
                 i++;
             }
-        } else {
+        } else
             my_putchar(first_str[i]);
-        }
         i++;
     }
     va_end(list);

@@ -15,13 +15,12 @@ void my_putstr_printable_only(char const *str)
 {
     int count = 0;
 
-    while (str[count] != '\0') {
+    while (str[count]) {
         if (str[count] < 32 || 127 <= str[count]) {
             my_putchar('\\');
             my_put_nbr_base(str[count], "01234567");
-        } else {
+        } else
             my_putchar(str[count]);
-        }
         count++;
     }
 }

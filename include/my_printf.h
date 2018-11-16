@@ -6,10 +6,16 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
+
+#define ERROR_NO_STRING             84
 
 void my_putstr(char const *str);
 void my_putchar(char c);
+
+void my_putstr_error(char const *str);
+void my_putchar_error(char c);
 
 int *get_flags(char *first_str);
 int get_id(char c);
@@ -26,3 +32,5 @@ void flag_s(va_list *list);
 void flag_S(va_list *list);
 void flag_p(va_list *list);
 void flag_b(va_list *list);
+
+int my_strlen(char *str);

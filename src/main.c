@@ -10,7 +10,7 @@
 
 int main (void)
 {
-    int *a = 5;
-    my_printf("Ceci : %p \n", &a);
-    printf("%p #d", &a);
+    int a = 3;
+
+    printf("This is a test %d \n", a);
 }
