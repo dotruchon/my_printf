@@ -8,15 +8,17 @@
 
 NAME    = libmy.a
 
+TESTS_NAME	= unit_tests
+
 CC  = gcc
 
 RM  = rm -f
 
-CFLAGS = -I include/
+CFLAGS = -c -I include/
 
-CFLAGS += -W -Wall -Wextra -g --debug
+CFLAGS += -W -Wall -Wextra -g --debug -lcriterion
 
-SRCS    = src/my_printf.c								\
+SRCS    = src/main.c									\
 	      src/get_flags.c								\
 		  src/flags/c_flag.c							\
 		  src/flags/d_flag.c							\
@@ -36,20 +38,28 @@ SRCS    = src/my_printf.c								\
 		  include/my/my_put_nbr_base_unsigned_long.c	\
 		  include/my/my_put_unsigned_nbr.c				\
 		  include/my/my_strlen.c						\
-##		  criterion/unit_tests_my_printf.c 									-lcriterion
+
+TESTS_SRC	= criterion/unit_tests_my_printf.c 
 
 OBJS    = $(SRCS:.c=.o)
+
+TESTS_OBJS	= $(TESTS_SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+unit_tests: $(TESTS_NAME)
+	
+$(TESTS_NAME) : $(TESTS_OBJS)
+	$(CC) $(CFLAGS) $(TESTS_OBJS) -o $(TESTS_NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(TESTS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(TESTS_NAME)
 
 re: fclean all
 
