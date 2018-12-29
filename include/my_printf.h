@@ -34,3 +34,5 @@ void flag_p(va_list *list);
 void flag_b(va_list *list);
 
 int my_strlen(char *str);
+
+int my_printf(char *first_str, ...);

@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 void my_putchar(char c);
+
 int my_strlen(char *str);
 
 unsigned long power_base_unsigned_long(unsigned long n, int len_base)

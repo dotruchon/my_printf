@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2018
-** printf
+** my_printf
 ** File description:
 ** PSU_my_printf project
 */

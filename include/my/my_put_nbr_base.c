@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 void my_putchar(char c);
+
 int my_strlen(char *str);
 
 int abs_base(int n)
