@@ -6,17 +6,16 @@
 */
 
 #include <stdarg.h>
-
-void my_putchar(char c);
-
-void my_putstr(char const *str);
-
-void my_put_nbr_base_unsigned_long(unsigned long n, char *base);
+#include "../my/my.h"
 
 void flag_p(va_list *list)
 {
-    unsigned long p = va_arg(*list, unsigned long);
+    unsigned long value = va_arg(*list, unsigned long);
+    char *number = my_utob(value, 16);
+    char *dest = my_nb_to_base(number, "0123456789abcdef");
 
     my_putstr("0x");
-    my_put_nbr_base_unsigned_long(p, "0123456789abcdef");
+    my_putstr(dest);
+    free(number);
+    free(dest);
 }

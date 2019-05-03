@@ -5,12 +5,15 @@
 ** PSU_my_printf project
 */
 
+#include <stdlib.h>
 #include <stdarg.h>
-
-void my_put_nbr(int n);
+#include "../my/my.h"
 
 void flag_d(va_list *list)
 {
-    int d = va_arg(*list, int);
-    my_put_nbr(d);
+    int value = va_arg(*list, int);
+    char *dest = my_itob(value, 10);
+
+    my_putstr(dest);
+    free(dest);
 }

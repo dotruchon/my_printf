@@ -6,35 +6,33 @@
 */
 
 #include <stdarg.h>
+#include "../my/my.h"
 
-void my_putchar(char c);
-
-void my_putstr(char const *str);
-
-void my_put_nbr_base(int n, char *base);
-
-void my_putstr_printable_only(char const *str)
+void put_printable_only(char const *str)
 {
-    int count = 0;
+    int i = 0;
+    char *dest = NULL;
 
-    while (str[count]) {
-        if (str[count] < 32 || 127 <= str[count]) {
+    while (str[i]) {
+        if (str[i] < 32) {
             my_putchar('\\');
-            my_put_nbr_base(str[count], "01234567");
+            dest = my_itob(str[i], 7);
+            my_putstr(dest);
+            free(dest);
         } else
-            my_putchar(str[count]);
-        count++;
+            my_putchar(str[i]);
+        i++;
     }
 }
 
 void flag_s(va_list *list)
 {
-    char *s = va_arg(*list, char *);
-    my_putstr(s);
+    char *str = va_arg(*list, char *);
+    my_putstr(str);
 }
 
 void flag_S(va_list *list)
 {
-    char *S = va_arg(*list, char *);
-    my_putstr_printable_only(S);
+    char *str = va_arg(*list, char *);
+    put_printable_only(str);
 }

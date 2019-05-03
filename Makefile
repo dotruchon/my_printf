@@ -1,57 +1,63 @@
 ##
 ## EPITECH PROJECT, 2018
-## Makefile
+## makefile libmy
 ## File description:
-## CPool_Day11_2018 task01
+## task1
 ##
 
+LIB_NAME = 	my
 
-NAME    = libmy.a
+LIB =		"lib$(LIB_NAME).a"
 
-CC  = gcc
+HEADER =	"$(LIB_NAME).h"
 
-RM  = rm -f
+TEST =		"test"
 
-CFLAGS = -c -I include/
+SRCS	=   src/my_printf.c									\
+			src/flags/c_flag.c								\
+			src/flags/d_flag.c								\
+			src/flags/i_flag.c								\
+			src/flags/o_flag.c								\
+			src/flags/p_flag.c								\
+			src/flags/s_flags.c								\
+			src/flags/u_flag.c								\
+			src/flags/x_flags.c								\
+			src/flags/b_flag.c								\
+			src/my/my_atoi.c								\
+			src/my/my_putchar.c								\
+			src/my/my_putstr.c								\
+			src/my/my_revstr.c								\
+			src/my/my_strlen.c								\
+			src/my/my_putstrerr.c							\
+			src/my/my_nb_to_base.c							\
+			src/my/my_itob.c								\
+			src/my/my_utob.c								\
 
-CFLAGS += -W -Wall -Wextra -g --debug -lcriterion
+TEST_SRCS   =   criterion/cri_my_printf.c   \
 
-SRCS    = src/my_printf.c								\
-	      src/get_flags.c								\
-		  src/flags/c_flag.c							\
-		  src/flags/d_flag.c							\
-		  src/flags/i_flag.c							\
-		  src/flags/o_flag.c							\
-		  src/flags/p_flag.c							\
-		  src/flags/s_flags.c							\
-		  src/flags/u_flag.c							\
-		  src/flags/x_flags.c							\
-		  src/flags/b_flag.c							\
-		  include/my/my_putchar.c						\
-		  include/my/my_putstr.c						\
-		  include/my/my_putchar_error.c					\
-		  include/my/my_putstr_error.c					\
-		  include/my/my_put_nbr.c						\
-		  include/my/my_put_nbr_base.c					\
-		  include/my/my_put_nbr_base_unsigned_long.c	\
-		  include/my/my_put_unsigned_nbr.c				\
-		  include/my/my_strlen.c						\
+OBJS	=   $(SRCS:.c=.o)
+TEST_OBJS   =   $(TEST_SRCS:.c=.o)
 
-OBJS    = $(SRCS:.c=.o)
+all:		$(LIB) $(TEST)
 
-all: $(NAME)
+$(LIB): 	$(OBJS)
+			ar rc $(LIB) $(OBJS)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(TEST):	$(TEST_OBJS)
+			gcc $(TEST_OBJS) -o $(TEST) -L ./ -lmy -lcriterion
 
-unit_tests: $(TESTS_NAME)
+test:   	$(TEST)
 
 clean:
-	$(RM) $(OBJS) $(TESTS_OBJS)
+			rm -f $(OBJS) $(TEST_OBJS)
 
-fclean: clean
-	$(RM) $(NAME) $(TESTS_NAME)
+fclean:		clean
+			rm -f $(LIB)
+			rm -f $(TESTS)
 
-re: fclean all
+re:			clean all
 
-.PHONY: all clean fclean re
+parle:
+			echo "lib$(LIB_NAME)"
+
+.PHONY: 	all clean fclean re

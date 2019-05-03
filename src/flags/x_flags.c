@@ -6,17 +6,26 @@
 */
 
 #include <stdarg.h>
-
-void my_put_nbr_base(int n, char *base);
+#include "../my/my.h"
 
 void flag_x(va_list *list)
 {
-    int x = va_arg(*list, int);
-    my_put_nbr_base(x, "0123456789abcdef");
+    int value = va_arg(*list, int);
+    char *number = my_itob(value, 16);
+    char *dest = my_nb_to_base(number, "0123456789abcdef");
+
+    my_putstr(dest);
+    free(number);
+    free(dest);
 }
 
 void flag_X(va_list *list)
 {
-    int x = va_arg(*list, int);
-    my_put_nbr_base(x, "0123456789ABCDEF");
+    int value = va_arg(*list, int);
+    char *number = my_itob(value, 16);
+    char *dest = my_nb_to_base(number, "0123456789ABCDEF");
+
+    my_putstr(dest);
+    free(number);
+    free(dest);
 }

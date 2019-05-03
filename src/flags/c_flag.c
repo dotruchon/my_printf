@@ -13,5 +13,6 @@ void my_putstr(char const *str);
 void flag_c(va_list *list)
 {
     char c = va_arg(*list, int);
+
     write(1, &c, 1);
 }

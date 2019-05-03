@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dtruchon/UNITS/PSU/PSU_my_printf_2018/src/main.c
+libmy.a
+/home/dtruchon/UNITS/PSU/PSU_my_printf_2018/src/libmy.a
+

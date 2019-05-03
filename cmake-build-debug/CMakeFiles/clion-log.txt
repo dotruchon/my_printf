@@ -1,0 +1,4 @@
+/home/dtruchon/.CLion2018.3/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/dtruchon/UNITS/PSU/PSU_my_printf_2018
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dtruchon/UNITS/PSU/PSU_my_printf_2018/cmake-build-debug
